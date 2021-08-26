@@ -51,7 +51,7 @@ class Spider:
             if ii == 0:
                 start_url = start_url + KeyWords_split[ii]
             else:
-                start_url = start_url + '%20' + KeyWords_split[ii]
+                start_url = start_url + '%27' + KeyWords_split[ii]
         start_url = start_url + '&show=25&sortBy=relevance'
         return start_url
 
