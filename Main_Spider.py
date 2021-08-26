@@ -74,7 +74,7 @@ class Spider:
         # Start crawling 
         count = 1
         while True:
-            print("Hoàn thành: {}/{} - {:.0f}%".format(count,Page_num,(i*100/Page_num)))
+            print("Hoàn thành: {}/{} - {:.0f}%".format(count,Page_num,(count*100/Page_num)))
             # Take a new link from new_urls for crawling 
             if len(new_urls):
                 # Take a new link from new_urls for crawling 
