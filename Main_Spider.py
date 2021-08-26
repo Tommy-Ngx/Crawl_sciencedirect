@@ -74,7 +74,7 @@ class Spider:
         # Start crawling 
         count = 1
         while True:
-
+            print("Hoàn thành: {}/{} - {:.0f}%".format(count,Page_num,(i*100/Page_num)))
             # Take a new link from new_urls for crawling 
             if len(new_urls):
                 # Take a new link from new_urls for crawling 
@@ -127,7 +127,7 @@ if __name__ == "__main__":
     KeyWords = input('Enter the keywords you want to find (connect with spaces): ')
 
     # Set the number of search articles
-    Page_num = 500
+    Page_num = 5
 
     # Print search initial conditions
     print(KeyWords, Page_num)
