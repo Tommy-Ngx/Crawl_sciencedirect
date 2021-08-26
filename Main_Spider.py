@@ -45,13 +45,14 @@ class Spider:
         # Use spaces to slice keywords 
         KeyWords_split = KeyWords.split()
         # Splicing start page URL 
-        start_url = 'http://www.sciencedirect.com/search?qs='
+        # https://www.sciencedirect.com/search?offset=0&qs=covid&show=25&sortBy=relevance
+        start_url = 'http://www.sciencedirect.com/search?offset=0&qs='
         for ii in range(0, len(KeyWords_split)):
             # 'http://www.sciencedirect.com/search?qs=turbine%20blade%20crack&show=25&sortBy=relevance'
             if ii == 0:
                 start_url = start_url + KeyWords_split[ii]
             else:
-                start_url = start_url + '%27' + KeyWords_split[ii]
+                start_url = start_url + '%25' + KeyWords_split[ii]
         start_url = start_url + '&show=25&sortBy=relevance'
         return start_url
 
@@ -97,9 +98,12 @@ class Spider:
                 count = count + 1
 
             else:
-                # Turn page 
-                print(start_url + '&offset=' + str(int(count-1)))
-                new_urls = self.url_analyse.analyse_SearchPage(start_url + '&offset=' + str(int(count-1)))
+                # Turn page 50 offset=50&qs=covid&show=25
+                print(start_url + '&offset=' + str(int(count*25)))
+                #start_url = 'http://www.sciencedirect.com/search?offset=0&qs='
+                # print(start_url + '&offset=' + str(int(count-1)))
+                #new_urls = self.url_analyse.analyse_SearchPage(start_url + '&offset=' + str(int(count-1)))
+                new_urls = self.url_analyse.analyse_SearchPage(start_url + '&offset=' + str(int(count*25)))
 
             # Quit if the number of documents searched reaches the requirement 
             if count>Page_num:
