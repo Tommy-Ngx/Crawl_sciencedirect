@@ -45,8 +45,8 @@ class Spider:
         # Use spaces to slice keywords 
         KeyWords_split = KeyWords.split()
         # Splicing start page URL 
-        # https://www.sciencedirect.com/search?offset=0&qs=covid&show=25&sortBy=relevance
-        start_url = 'http://www.sciencedirect.com/search?offset=0&qs='
+        #            https://www.sciencedirect.com/search?qs=covid&show=25&sortBy=relevance&offset=0
+        start_url = 'https://www.sciencedirect.com/search?&qs='
         for ii in range(0, len(KeyWords_split)):
             # 'http://www.sciencedirect.com/search?qs=turbine%20blade%20crack&show=25&sortBy=relevance'
             if ii == 0:
